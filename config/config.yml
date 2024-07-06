@@ -1,0 +1,26 @@
+server:
+  name: "potize"
+  address: "0.0.0.0:5800"
+  ssl: false
+  cors_allow_origin:
+    - "https://salvo.rs"
+    - "*"
+
+database:
+  database_url: "postgres://liufankai:1@localhost/diesel_example"
+
+jwt:
+  jwt_secret: "secret"
+  jwt_exp: 6000
+
+cert:
+  cert: "config/certs/cert.pem"
+  key: "config/certs/key.pem"
+
+log:
+  filter_level: "info"        # Available options: "debug", "info", "warn", "error"
+  with_ansi: true
+  to_stdout: true
+  directory: "./logs"
+  file_name: "my-service.log"
+  rolling: "daily"            # Available options: "minutely", "hourly", "daily", "never"
