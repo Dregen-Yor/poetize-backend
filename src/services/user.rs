@@ -18,9 +18,10 @@ pub async fn add_user(req: UserAddRequest) -> AppResult<UserResponse> {
     use crate::schema::users;
     let mut db = establish_connection();
     let model = UserModel {
-        id: Uuid::new_v4().to_string(),
+        id: Uuid::new_v4().to_fields_le(),
         username: req.username.clone(),
         password: rand_utils::hash_password(req.password).await?,
+        // phone_number: req.phone_number.clone(),
     };
 
     diesel::insert_into(users::table)
