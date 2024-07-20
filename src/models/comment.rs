@@ -4,6 +4,7 @@ use serde::{Serialize, Deserialize};
 // Article model
 #[derive(Queryable, Identifiable, Serialize, Deserialize, Debug)]
 #[diesel(table_name = crate::schema::comment)]
+#[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct Comment {
     pub id: i32,
     pub source: i32,

@@ -4,6 +4,7 @@ use serde::{Serialize, Deserialize};
 // Article model
 #[derive(Queryable, Identifiable, Serialize, Deserialize, Debug)]
 #[diesel(table_name = crate::schema::resource_path)]
+#[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct ResourcePath {
     pub id: i32,
     pub title: String,

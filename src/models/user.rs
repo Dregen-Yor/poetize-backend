@@ -2,6 +2,7 @@ use diesel::prelude::*;
 use serde::{Serialize, Deserialize};
 #[derive(Queryable, Selectable, Insertable, Serialize, Deserialize)]
 #[diesel(table_name = crate::schema::user)]
+#[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct UserModel {
     pub id: i32,
     pub username: Option<String>,

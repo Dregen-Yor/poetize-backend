@@ -4,6 +4,7 @@ use serde::{Serialize, Deserialize};
 // Article model
 #[derive(Queryable, Identifiable, Serialize, Deserialize, Debug)]
 #[diesel(table_name = crate::schema::family)]
+#[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct Family {
     pub id: i32,
     pub user_id: Option<i32>,
