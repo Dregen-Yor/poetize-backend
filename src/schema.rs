@@ -256,7 +256,7 @@ diesel::table! {
 
 diesel::table! {
     user (id) {
-        id -> Int4,
+        id -> Uuid,
         #[max_length = 32]
         username -> Nullable<Varchar>,
         #[max_length = 128]

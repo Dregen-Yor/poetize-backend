@@ -16,18 +16,18 @@ use salvo::Writer;
 
 #[endpoint( tags("comm"),)]
 pub async fn post_login(req: JsonBody<UserLoginRequest>, res: &mut Response) {
-    let result: AppResult<UserLoginResponse> = user::login(req.0).await;
-    match result {
-        Ok(data) => {
-            let jwt_token = data.token.clone();
-            let cookie = Cookie::build(("jwt_token", jwt_token))
-                .path("/")
-                .http_only(true)
-                .build();
-            res.add_cookie(cookie);
-        }
-        Err(e) => ErrorResponseBuilder::with_err(e).into_response(res),
-    }
+    // let result: AppResult<UserLoginResponse> = user::login(req.0).await;
+    // match result {
+    //     Ok(data) => {
+    //         let jwt_token = data.token.clone();
+    //         let cookie = Cookie::build(("jwt_token", jwt_token))
+    //             .path("/")
+    //             .http_only(true)
+    //             .build();
+    //         res.add_cookie(cookie);
+    //     }
+    //     Err(e) => ErrorResponseBuilder::with_err(e).into_response(res),
+    // }
 }
 
 #[endpoint(tags("users"))]

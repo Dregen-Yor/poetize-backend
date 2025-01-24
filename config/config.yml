@@ -7,7 +7,7 @@ server:
     - "*"
 
 database:
-  database_url: "postgres://liufankai:1@localhost/poetize"
+  database_url: "postgres://sgxblog:22119797sgx@localhost/poetize"
 
 jwt:
   jwt_secret: "secret"

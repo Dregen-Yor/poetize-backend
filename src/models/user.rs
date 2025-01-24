@@ -1,10 +1,11 @@
 use diesel::prelude::*;
+use uuid::Uuid;
 use serde::{Serialize, Deserialize};
 #[derive(Queryable, Selectable, Insertable, Serialize, Deserialize)]
 #[diesel(table_name = crate::schema::user)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct UserModel {
-    pub id: i32,
+    pub id: Uuid,
     pub username: Option<String>,
     pub password: Option<String>,
     pub phone_number: Option<String>,

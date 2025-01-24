@@ -1,7 +1,7 @@
 -- Your SQL goes here
 
-CREATE TABLE user (
-  id SERIAL PRIMARY KEY,
+CREATE TABLE "user" (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   username VARCHAR(32) UNIQUE,
   password VARCHAR(128),
   phone_number VARCHAR(16),
